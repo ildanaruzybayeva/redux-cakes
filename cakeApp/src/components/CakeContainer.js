@@ -15,12 +15,12 @@ const mapStateToProps = state => {
   return {
     numOfCakes: state.numOfCakes
   };
-};
+}; //useSelector - hooks alternative
 
 const mapDispatchToProps = dispatch => {
   return {
     buyCake: () => dispatch(buyCake())
   };
-};
+}; //useDispatch - hooks alternative
 
 export default connect(mapStateToProps, mapDispatchToProps)(CakeContainer);

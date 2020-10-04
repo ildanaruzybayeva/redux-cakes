@@ -1,6 +1,11 @@
 const redux = require("redux");
+const reduxLogger = require('redux-logger')
+
+
 const createStore = redux.createStore;
 const combineReducers = redux.combineReducers;
+const applyMiddleware = redux.applyMiddleware
+const logger = reduxLogger.createLogger()
 
 //Action (describe intention)
 
@@ -61,11 +66,9 @@ const rootReducer = combineReducers({
   iceCream: iceCreamReducer
 });
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(logger));
 console.log("Initial state is", store.getState());
-const unsibscribe = store.subscribe(() =>
-  console.log("New store is", store.getState())
-);
+const unsibscribe = store.subscribe(() => {});
 store.dispatch(buyCake());
 store.dispatch(buyIceCream());
 store.dispatch(buyCake());

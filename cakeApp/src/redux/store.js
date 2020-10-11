@@ -4,10 +4,12 @@ import cakeReducer from "../redux/cake/cakeReducer";
 import iceCreamReducer from "../redux/icecream/iceCreamReducer";
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { combineReducers } from "redux";
+import todoReducer from "./todo/todoReducer";
 
 const rootReducer = combineReducers({
   cake: cakeReducer,
-  iceCream: iceCreamReducer
+  iceCream: iceCreamReducer,
+  todo: todoReducer
 });
 
 const store = createStore(rootReducer, composeWithDevTools(

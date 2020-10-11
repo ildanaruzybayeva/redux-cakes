@@ -10,6 +10,7 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
+        <HooksContainer />
         <HooksTodo />
       </div>
     </Provider>

@@ -2,6 +2,7 @@ import React, { useReducer } from "react";
 import ComponentA from "./components/ComponentA";
 import ComponentB from "./components/ComponentB";
 import ComponentC from "./components/ComponentC";
+import FetchWithReducer from "./components/FetchWithReducer";
 import "./App.css";
 
 export const CountContext = React.createContext();
@@ -11,13 +12,10 @@ const reducer = (state, action) => {
   switch (action) {
     case "increment":
       return state + 1;
-      break;
     case "decrement":
       return state - 1;
-      break;
     case "reset":
       return initialState;
-      break;
     default:
       return state;
   }
@@ -30,6 +28,7 @@ function App() {
       value={{ countState: count, countDispatch: dispatch }}
     >
       <div className="App">
+        <FetchWithReducer />
         Count - {count}
         <ComponentA />
         <ComponentB />
